@@ -1,2 +1,2 @@
 # AI_Engineering_OPA24_Susanna_Rokka
-learning Ai Engineering. School repo
+Learning AI Engineering. School Repo for NBI/Handelsakademin HT25/VT26
