@@ -1,0 +1,55 @@
+{
+    "name": "Coolu Libraru",
+    "books": [
+        {
+            "title": "The Silent Forest",
+            "author": "Elara Vance",
+            "year": 2018
+        },
+        {
+            "title": "Whispers of the Cosmos",
+            "author": "Dr. Kaelen Thorne",
+            "year": 2021
+        },
+        {
+            "title": "Chronicles of Aethel",
+            "author": "Lyra Sterling",
+            "year": 2015
+        },
+        {
+            "title": "The Gilded Compass",
+            "author": "Arthur Pendelton",
+            "year": 2019
+        },
+        {
+            "title": "Echoes of Tomorrow",
+            "author": "Seraphina Moon",
+            "year": 2023
+        },
+        {
+            "title": "Beneath the Obsidian Sky",
+            "author": "Roric Stone",
+            "year": 2017
+        },
+        {
+            "title": "The Alchemist's Secret",
+            "author": "Isabelle Dubois",
+            "year": 2010
+        },
+        {
+            "title": "Gardens of the Sunken City",
+            "author": "Leo Maritime",
+            "year": 2022
+        },
+        {
+            "title": "A Flicker in the Dark",
+            "author": "Nadia Volkov",
+            "year": 2016
+        },
+        {
+            "title": "The Cartographer's Dream",
+            "author": "Elias Croft",
+            "year": 2020
+        }
+    ]
+}
