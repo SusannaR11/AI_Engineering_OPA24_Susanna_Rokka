@@ -1,0 +1,39 @@
+{
+   "objects": [
+      {
+         "address": "Södermannagatan 12",
+         "price_sek": 5500000,
+         "monthly_fee": 3200,
+         "city": "Stockholm",
+         "living_area_kvm": 55
+      },
+      {
+         "address": "Linnégatan 34",
+         "price_sek": 4800000,
+         "monthly_fee": 4500,
+         "city": "Göteborg",
+         "living_area_kvm": 75
+      },
+      {
+         "address": "Amiralsgatan 77",
+         "price_sek": 3600000,
+         "monthly_fee": 5200,
+         "city": "Malmö",
+         "living_area_kvm": 85
+      },
+      {
+         "address": "Svartbäcksgatan 20",
+         "price_sek": 2400000,
+         "monthly_fee": 2800,
+         "city": "Uppsala",
+         "living_area_kvm": 40
+      },
+      {
+         "address": "Ågatan 80",
+         "price_sek": 2900000,
+         "monthly_fee": 3800,
+         "city": "Linköping",
+         "living_area_kvm": 65
+      }
+   ]
+}
