@@ -14,9 +14,22 @@ class DataExplorer:
     def df(self):
         return self._df # ._df is the 'backing variable'
     
+    def kpis(self, country: str):
+        """filter out KPIs based on country"""
+        df_by_country = self._df_full.query("Country.str.casefold() == @country.casefold()")
+        return {
+            "total_profit": str(df_by_country["Profit"].sum()), #numpy
+            "total_cost": str(df_by_country["Cost"].sum()),
+            "number_of_purchases": str(len(df_by_country))
+        }
+
+    
     def summary(self):
         self._df = (
-            self._df_full.describe().T.drop(["count"], axis=1).drop(["Day", "Year"])) #for summary statistics. axis=1 throws columns, axis for rows. method chaining (.method().method() ... like in pandas)
+            self._df_full.describe()
+            .T.drop(["count"], axis=1)
+            .drop(["Day", "Year"])
+            .reset_index()) #for summary statistics. axis=1 throws columns, axis for rows. method chaining (.method().method() ... like in pandas)
         return self
 
     def json_response(self):
