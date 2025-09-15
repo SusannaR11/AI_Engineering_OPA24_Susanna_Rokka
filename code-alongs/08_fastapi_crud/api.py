@@ -1,5 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from data_processing import library_data, Book
+from constants import CURRENT_YEAR
+from pprint import pprint
 
 app = FastAPI()
 
@@ -15,9 +17,21 @@ async def read_books():
 # in terminal uvicorn api:app --reload
 # opens localhost, then navigate to /books to see json library
 
-@app.get("/books/title/{title}")
-async def read_book_by_title(title: str):
-    return [book for book in books if book.title.casefold()== title.casefold()]
+@app.get("/books/")
+async def filter_books(
+    start_year: int= Query(
+        1950,
+        gt=1500,
+        lt=CURRENT_YEAR + 1,
+        description = "Filter books that are newer than this year"
+    )
+):
+    filtered_books = [book for book in books if start_year < book.year]
+    return filtered_books
+
+
+#read_book_by_title(title: str):
+#   return [book for book in books if book.title.casefold()== title.casefold()]
 
 # /docs to see endpoints in Swagger
 # try it out , execute
@@ -45,3 +59,11 @@ async def create_book(book_request: Book):
 # QUERY PARAMETERS
 
 # @app.put("/books")
+#async def update_book(book_request:Book)
+    
+
+
+
+
+#uv pip install fastapi uvicorn
+# uvicorn api:app --reload (name of file:name of app --reload (so it keeps changing from that directory, no need to run it again))
