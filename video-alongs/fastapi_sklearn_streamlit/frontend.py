@@ -3,6 +3,7 @@ import httpx
 from constants import DATA_PATH, ASSETS_PATH
 
 url = "http://127.0.0.1:8000/api/iris/v1/predict"
+# deploy localhost: to Azure functions, change to whatever domain you want
 
 def predict_flower(payload):
     with httpx.Client(timeout=10) as client:
@@ -44,6 +45,8 @@ if submitted:
     response = predict_flower(payload=payload).json()
     flower = response.get("predicted_flower").casefold() #casefold for lower case
     st.markdown(f"Predicted flower is {flower}")
+    st.image(f"{ASSETS_PATH / flower}.jpg")
+
 
 
 
