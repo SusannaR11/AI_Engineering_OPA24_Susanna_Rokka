@@ -17,7 +17,7 @@ class MYH:
         self.df = df.head(limit)
 
     def filter_school(self, school: str | None):
-        self.df_full.query("`Utbildningsanordnare administrativ enhet`== @school"
+        self.df = self.df_full.query("`Utbildningsanordnare administrativ enhet`== @school"
                            )
         
         return self
