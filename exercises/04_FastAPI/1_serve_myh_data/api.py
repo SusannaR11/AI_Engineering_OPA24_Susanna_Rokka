@@ -12,8 +12,7 @@ def read_myh_data(
 @app.get("/myh/school/")
 def filter_school(school: str):
     myh = MYH()
-
-    return myh.filter_school(school).to_json
+    return myh.filter_school(school).to_json()
 
 # kokchungs yh-dashboard (plotly dash instead of streamlit)
 
