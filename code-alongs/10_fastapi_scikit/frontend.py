@@ -3,6 +3,7 @@ import httpx
 from constants import ASSETS_PATH
 
 url = "http://127.0.0.1:8000/api/iris/v1/predict"
+#deploy to azure functions or similar for sharing
 
 def predict_flower(payload):
     with httpx.Client(timeout=10) as client:
@@ -11,15 +12,31 @@ def predict_flower(payload):
         return response
 
 
-
-
-
 st.markdown("# Predict Iris Flower")
 
 with st.form("iris_data"):
-    st.number_input("Sepal length (cm)", min_value= 4.01, max_value=8.49, value = 6.0)
-    st.number_input("Sepal width (cm)", min_value= 1.8, max_value=4.99, value=2.5)
-    st.number_input("Petal length (cm)", min_value= 0.81, max_value=7.49, value=4.5)
-    st.number_input("Petal width (cm)", min_value= 0.01, max_value=2.99, value=1.2)
+    sepal_length = st.number_input("Sepal length (cm)", min_value= 4.01, max_value=8.49, value = 6.0)
+    sepal_width = st.number_input("Sepal width (cm)", min_value= 1.8, max_value=4.99, value=2.5)
+    petal_length = st.number_input("Petal length (cm)", min_value= 0.81, max_value=7.49, value=4.5)
+    petal_width = st.number_input("Petal width (cm)", min_value= 0.01, max_value=2.99, value=1.2)
 
-submitted = st.form_submit_button("PREDICT")
+    submitted = st.form_submit_button("PREDICT")
+
+st.markdown(submitted)
+
+if submitted:
+    payload = {
+        "sepal_length": sepal_length,
+        "sepal_width": sepal_width,
+        "petal_length": petal_length,
+        "petal_width": petal_width
+    }
+
+    response = predict_flower(payload=payload).json()
+    flower = response.get("predicted_flower").casefold()
+    st.markdown(f"Predicted flower is {flower}.")
+    st.image(f"{ASSETS_PATH / flower}.jpg")
+
+
+
+#st.markdown(type(petal_width)) to check which dtype. it's already 'lfoat' so no need to specify it
