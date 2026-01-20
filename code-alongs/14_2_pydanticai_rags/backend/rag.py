@@ -27,6 +27,7 @@ def retrieve_top_documents(query: str, k=3) -> str:
     Uses vector search to find the closest k matching documents to the query
     """
     results = vector_db["articles"].search(query=query).limit(k).to_list()
+   # results[0]
 
     return f"""
     

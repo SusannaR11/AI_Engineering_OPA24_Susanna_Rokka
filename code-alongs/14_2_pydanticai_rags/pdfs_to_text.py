@@ -1,3 +1,5 @@
+#%%
+
 from pypdf import PdfReader
 from backend.constants import DATA_PATH
 
@@ -27,3 +29,8 @@ if __name__ == "__main__":
         filename = f"{pdf_path.stem.casefold()}.txt"
 
         export_text_to_txt(pdf_text, DATA_PATH / filename)
+
+# run command for creating .txt files:
+# python pdfs_to_text.py
+
+#%%
