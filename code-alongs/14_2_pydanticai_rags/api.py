@@ -13,7 +13,7 @@ async def test():
 async def query_documentation(query: Prompt):
     result = await rag_agent.run(query.prompt)
     
-    return result.output
+    return result.data  # data or output ??
 
 # to run the API run the following command:
 # uvicorn api:app --reload

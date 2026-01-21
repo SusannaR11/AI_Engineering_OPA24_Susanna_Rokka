@@ -8,7 +8,7 @@ def layout():
 
     st.markdown("# RAGbit")
     st.markdown("Ask a question about different dwarf rabbits")
-    text_input = st.text_input(label="Ask a questions")
+    text_input = st.text_input(label="Ask a question")
 
     if st.button("Send") and text_input.strip() != "":
         response = requests.post(
@@ -30,3 +30,7 @@ def layout():
 
 if __name__ == "__main__":
     layout()
+
+
+# run using command from root folder:
+# streamlit run frontend/app.py
